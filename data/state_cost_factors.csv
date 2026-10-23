@@ -1,0 +1,52 @@
+state_code,state_name,factor
+AK,Alaska,2.25
+AL,Alabama,0.85
+AR,Arkansas,0.83
+AZ,Arizona,0.99
+CA,California,1.21
+CO,Colorado,0.97
+CT,Connecticut,1.09
+DC,District of Columbia,1.02
+DE,Delaware,0.98
+FL,Florida,0.87
+GA,Georgia,0.88
+HI,Hawaii,2.13
+IA,Iowa,1.00
+ID,Idaho,1.13
+IL,Illinois,1.02
+IN,Indiana,0.95
+KS,Kansas,0.91
+KY,Kentucky,0.87
+LA,Louisiana,0.85
+MA,Massachusetts,1.20
+MD,Maryland,0.96
+ME,Maine,1.08
+MI,Michigan,1.04
+MN,Minnesota,1.12
+MO,Missouri,0.98
+MS,Mississippi,0.81
+MT,Montana,1.07
+NC,North Carolina,0.81
+ND,North Dakota,1.14
+NE,Nebraska,1.00
+NH,New Hampshire,1.11
+NJ,New Jersey,1.18
+NM,New Mexico,0.89
+NV,Nevada,1.17
+NY,New York,1.03
+OH,Ohio,0.93
+OK,Oklahoma,0.88
+OR,Oregon,1.24
+PA,Pennsylvania,1.09
+RI,Rhode Island,1.17
+SC,South Carolina,0.88
+SD,South Dakota,1.01
+TN,Tennessee,0.87
+TX,Texas,0.82
+UT,Utah,1.08
+VA,Virginia,0.92
+VT,Vermont,1.05
+WA,Washington,1.12
+WI,Wisconsin,1.11
+WV,West Virginia,0.94
+WY,Wyoming,1.05

@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NestQuest by Engee Homes · Plan a home or development you can actually build</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css?v=21">
+<script type="importmap">
+{ "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M4 15 16 5l12 10v13H4z' fill='%237D8F69'/><path d='M13 28v-8h6v8' fill='%23F7F3EC'/></svg>">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/" aria-label="NestQuest home">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M4 15 16 5l12 10v13H4z" fill="#7D8F69"/><path d="M13 28v-8h6v8" fill="#F7F3EC"/><circle cx="23" cy="9" r="3" fill="#B08968"/></svg>
+    <span>NestQuest<small>by Engee Homes</small></span>
+  </a>
+  <nav class="mainnav" aria-label="Main">
+    <a href="#/" data-nav="home">Home</a>
+    <a href="#/home" data-nav="home-plan">Plan a home</a>
+    <a href="#/develop" data-nav="develop">Plan a development</a>
+    <a href="#/about" data-nav="about">About us</a>
+  </nav>
+  <nav class="steps hidden" aria-label="Progress">
+    <span class="step" data-step="1"><b>1</b> Your project</span>
+    <span class="step" data-step="2"><b>2</b> Your options</span>
+    <span class="step" data-step="3"><b>3</b> Refine</span>
+  </nav>
+  <button class="meter" id="meter" title="AI usage for this session. Click to see how NestQuest worked.">
+    <span id="meterTokens">0 tokens</span><span class="dot">·</span><span id="meterCost">$0.0000</span>
+  </button>
+</header>
+
+<main>
+  <!-- HOME ------------------------------------------------------------ -->
+  <section id="view-home" class="view">
+    <div class="homeHero">
+      <div class="heroText">
+        <img src="/static/img/about/logo.png" alt="Engee Homes logo" class="aboutLogo">
+        <span class="eyebrow">NestQuest by Engee Homes</span>
+        <h1>Your vision, <em>built to last</em>.</h1>
+        <p>NestQuest is a free planning tool from <b>Engee Homes</b>, a real estate developer based in Northern Virginia and focused on building beautiful, sustainable communities. <b>It works anywhere in the U.S.</b> Tell us your budget and your land, in any state. NestQuest's AI design team shows you what you can build, what it will cost, and what to watch out for, so you come to us with a vision you love and we'd be happy to build with you.</p>
+        <div class="heroCtas">
+          <a class="btn primary big" href="#/home">Plan my home</a>
+          <a class="btn ghost big" href="#/develop">Plan a development</a>
+        </div>
+        <p class="hint">Works in all 50 states and D.C. No sign-up. Takes about a minute. Planning estimates, not quotes.</p>
+      </div>
+      <div class="heroViewer card">
+        <div class="viewer3d" id="heroViewer"></div>
+        <span class="viewerHint">Drag to look around · a sample NestQuest farmhouse</span>
+      </div>
+    </div>
+
+    <h2 class="sectionTitle">Two ways to start</h2>
+    <div class="paths">
+      <a class="card pathCard" href="#/home">
+        <span class="pathIcon">🏡</span>
+        <h3>For homeowners</h3>
+        <p>Building your own home on land you own or are buying.</p>
+        <ul><li>Three home designs that fit your budget and lot</li><li>Floor plans and a walk-around 3D model</li><li>A plain-language list of what works and what doesn't</li><li>Refine it by chatting: "add a home office"</li></ul>
+        <span class="pathGo">Plan my home →</span>
+      </a>
+      <a class="card pathCard" href="#/develop">
+        <span class="pathIcon">🏘️</span>
+        <h3>For developers</h3>
+        <p>Duplexes, fourplexes, townhomes and small apartment buildings.</p>
+        <ul><li>Three site plans: lean, balanced and max-yield</li><li>Unit mix, parking, density and height checks</li><li>Total development cost, cost per unit and returns</li><li>3D massing of the whole site</li></ul>
+        <span class="pathGo">Plan a development →</span>
+      </a>
+    </div>
+
+    <h2 class="sectionTitle">How it works</h2>
+    <ol class="how">
+      <li><b>1</b><h3>Tell us your vision</h3><p>Budget, land, style and must-haves, in a few clicks.</p></li>
+      <li><b>2</b><h3>An AI team designs it</h3><p>Four AI agents draft three options and test each one against your budget, your lot and building code.</p></li>
+      <li><b>3</b><h3>See it and shape it</h3><p>Explore each option in 3D and refine it by chatting. Costs and checks update every time.</p></li>
+      <li><b>4</b><h3>Bring it to Engee Homes</h3><p>Arrive with a realistic, well-understood plan, and we'll help you build it.</p></li>
+    </ol>
+
+    <div class="trust card">
+      <div>
+        <h2>Real numbers, not guesses</h2>
+        <p>NestQuest's AI never makes up a price. Every dollar comes from calculators built on published data: the National Association of Home Builders' 2024 construction cost survey, U.S. Department of Defense state construction cost factors (2026), and the International Residential Code. The app checks every answer before you see it.</p>
+        <button class="link" data-open-sources>See sources &amp; assumptions →</button>
+      </div>
+      <ul class="trustList">
+        <li><b>🗺️ Works nationwide</b> Construction costs adjusted for all 50 states and Washington, D.C.</li>
+        <li><b>🛡 Safe by design</b> Guards against manipulation and off-topic requests.</li>
+        <li><b>📐 Checked against your lot</b> Setbacks, height, coverage and room-size rules.</li>
+        <li><b>🌱 Sustainable options</b> Solar, EV charging and efficient construction methods, priced in.</li>
+        <li><b>🔎 Fully transparent</b> See every agent's work and the exact AI cost of your plan.</li>
+      </ul>
+    </div>
+
+    <div class="about">
+      <span class="eyebrow">About Engee Homes</span>
+      <h2>Rooted in Northern Virginia. Growing across the DMV and beyond.</h2>
+      <p>Engee Homes is a real estate development company based in Northern Virginia, and we're excited to expand across the DMV and beyond. We build homes and communities designed to be beautiful to live in and gentle on the land. NestQuest helps our customers shape a vision that's realistic for their budget and their site, one we'd be proud to build together.</p>
+      <div class="heroCtas" style="justify-content:center"><a class="btn primary" href="#/home">Start planning</a><a class="btn ghost" href="#/about">Meet Engee Homes</a></div>
+    </div>
+  </section>
+
+
+  <!-- ABOUT US ---------------------------------------------------------- -->
+  <section id="view-about" class="view hidden about-page">
+    <div class="aboutHero solo">
+      <div>
+        <img src="/static/img/about/logo.png" alt="Engee Homes logo" class="aboutLogo">
+        <span class="eyebrow">About Engee Homes</span>
+        <h1>Experience the difference of <em>custom building</em>.</h1>
+        <p>At Engee Homes, we build the finest homes and reimagine a lifestyle of relaxation and entertainment. Our thoughtfully planned homes are crafted with luxury in mind, with careful attention to even the smallest details. We support our clients with custom and spec home building, and with building on your own lot. Based in Northern Virginia, we're excited to expand across the DMV and beyond, and our NestQuest planning tool is open to anyone, anywhere in the U.S.</p>
+        <div class="heroCtas">
+          <a class="btn primary" href="#/home">Plan your home with NestQuest</a>
+          <a class="btn ghost" href="#about-contact" data-scroll>Contact us</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="aboutNav" aria-label="About sections">
+      <a href="#about-mission" data-scroll>Mission &amp; vision</a>
+      <a href="#about-founder" data-scroll>Our founder</a>
+      <a href="#about-process" data-scroll>How we build</a>
+      <a href="#about-projects" data-scroll>Projects</a>
+      <a href="#about-insights" data-scroll>Design insights</a>
+      <a href="#about-contact" data-scroll>Contact</a>
+    </nav>
+
+    <div class="mv" id="about-mission">
+      <div class="card mvCard">
+        <span class="mvIcon">🎯</span>
+        <h2>Our mission</h2>
+        <p>To build high-end homes that put luxurious, open-concept living first, and to transform our clients' dreams into reality. Every project reflects our commitment to craftsmanship and aesthetic integrity, from the architectural nuances to the harmony of the surroundings. To us, a home is not only a place to live but a sanctuary for the people in it.</p>
+      </div>
+      <div class="card mvCard">
+        <span class="mvIcon">🌅</span>
+        <h2>Our vision</h2>
+        <p>Home development as craftsmanship, not just construction. We treat each home as a form of expression, from the careful selection of materials to the designs we bring to life. We build for both profit and purpose, creating luxurious yet functional spaces and giving back to the communities we build in.</p>
+      </div>
+    </div>
+
+    <div class="difference">
+      <figure class="aboutHeroImg card"><img src="/static/img/about/hillcrest-1009-exterior.jpg" alt="Engee Homes custom home at 1009 Hillcrest Dr SW, Vienna, VA"><figcaption>1009 Hillcrest Dr SW, Vienna, VA · completed</figcaption></figure>
+      <div>
+        <span class="eyebrow">The Engee difference</span>
+        <h2>We're not just builders. We're your partners.</h2>
+        <p>Working with Engee Homes means having a trusted partner through the whole building and development process. We make sure you are heard and supported at every step, with a range of options and our honest recommendations.</p>
+        <p>We don't just follow blueprints. We interpret them, then tailor our recommendations on flow, light and the subtle nuances of materials to each project: the way the morning sun strikes a window, the feel of the grain in a hand-hewn beam. Challenges are opportunities to find creative solutions.</p>
+        <blockquote>"Our work is not merely about construction; it is about creating spaces that resonate with love, integrity, and a sense of belonging."</blockquote>
+      </div>
+    </div>
+
+    <div class="founder card" id="about-founder">
+      <img src="/static/img/about/founder.jpg" alt="Navneet Gupta, founder of Engee Homes">
+      <div>
+        <span class="eyebrow">Our founder</span>
+        <h2>Navneet Gupta</h2>
+        <p>Navneet earned a postgraduate degree in management from Delhi University. In 1998 he founded SNAP, Inc., which grew into a trusted provider of IT and learning management solutions for government, Department of Defense and commercial clients. He also mentors and serves on the boards of several companies in IT and marketing.</p>
+        <p>After years of success in technology, Navneet brought the same entrepreneurial spirit to custom home development and founded Engee Homes LLC. His focus is personalized living spaces that blend modern luxury with timeless craftsmanship, built with precision, care and a deep understanding of each client's preferences.</p>
+        <p class="giving"><b>Building with purpose.</b> Navneet's passion is driven by planning for both profit and purpose: Engee Homes builds homes at cost for low-income families, helping them lay the foundation for a more stable future. It's a value he has instilled in his team and hopes to leave as a lasting legacy.</p>
+      </div>
+    </div>
+
+    <h2 class="sectionTitle" id="about-process">How we build with you</h2>
+    <ol class="process">
+      <li><b>1</b><h3>First meeting</h3><p>Get to know each other, talk through your options and review your lot, whether you've chosen one or want us to find one.</p></li>
+      <li><b>2</b><h3>Design &amp; budgeting</h3><p>Adapt one of our floor plans or design a new home together, within your budget.</p><span class="nqTag">NestQuest helps here</span></li>
+      <li><b>3</b><h3>Final budget</h3><p>With the design final, we prepare your final budget so you can secure financing.</p></li>
+      <li><b>4</b><h3>Permitting</h3><p>We submit and navigate the permits needed for construction.</p></li>
+      <li><b>5</b><h3>Selections</h3><p>During permitting, we finalize your exterior and interior selections together.</p><span class="nqTag">Start in NestQuest</span></li>
+      <li><b>6</b><h3>Construction</h3><p>We manage every part of the build and keep you informed. Visit the site often!</p></li>
+      <li><b>7</b><h3>Completion &amp; delivery</h3><p>A final walk-through, the keys, and continued support after you move in.</p></li>
+    </ol>
+
+    <h2 class="sectionTitle" id="about-projects">Our projects</h2>
+    <div class="project card">
+      <div class="gallery">
+        <img src="/static/img/about/hillcrest-1009-kitchen.jpg" alt="Chef's kitchen with Bauformat cabinetry">
+        <img src="/static/img/about/hillcrest-1009-family-room.jpg" alt="Open family room">
+        <img src="/static/img/about/hillcrest-1009-porch.jpg" alt="Covered porch">
+        <img src="/static/img/about/hillcrest-1009-primary-bath.jpg" alt="Spa-like primary bath">
+      </div>
+      <div class="projectText">
+        <span class="status done">Completed</span>
+        <h3>1009 Hillcrest Dr SW, Vienna, VA</h3>
+        <p>A 6-bedroom, 6 full and 2 half bath custom home with over 6,200 sq ft of refined living in the heart of Vienna.</p>
+        <ul class="ticks">
+          <li>10 ft ceilings on the main level, hardwood floors throughout</li>
+          <li>Chef's kitchen with Bauformat cabinetry, Miele appliances and a Sub-Zero fridge</li>
+          <li>Coffered-ceiling family room opening to a covered porch and fenced backyard</li>
+          <li>Main-level guest suite and office; spa-like primary suite with heated floors and soaking tub</li>
+          <li>Walk-up basement with theater, gym and wet bar; EV-ready garage, Sonos sound, dual-zone HVAC</li>
+        </ul>
+      </div>
+    </div>
+    <div class="projectGrid">
+      <div class="card projectCard">
+        <img src="/static/img/about/hillcrest-1110-plan.jpg" alt="Floor plan of 1110 Hillcrest Dr SW">
+        <div><span class="status done">Completed · Sold</span><h3>1110 Hillcrest Dr SW, Vienna, VA</h3>
+        <p>Another custom high-end residence, now complete and sold: a transitional open-concept home with 6 bedrooms, 6 full and 2 half baths, European cabinetry and Miele appliances, a game room, theater, gym, and a walk-out basement opening to a double-deck outdoor space.</p></div>
+      </div>
+      <div class="card projectCard">
+        <img src="/static/img/about/elsinore-mclean.jpg" alt="1320 Elsinore Ave, McLean, VA">
+        <div><span class="status wip">In process</span><h3>1320 Elsinore Ave, McLean, VA</h3>
+        <p>An upscale location 2 miles from Tysons Galleria, being redesigned and completely rebuilt as a custom residence. Pre-sold homes like this one give buyers great flexibility to customize.</p></div>
+      </div>
+      <div class="card projectCard upcoming">
+        <figure class="stockImg"><img src="/static/img/about/manassas-placeholder.jpg" alt="Illustrative photo of a new attached-home community"><figcaption>Illustrative photo · Roger Starnes Sr / <a href="https://unsplash.com/photos/row-of-modern-houses-by-a-calm-lake-Ph06_YFjRu0" target="_blank" rel="noopener">Unsplash</a></figcaption></figure>
+        <div><span class="status soon">Upcoming</span><h3>Multifamily development, Manassas, VA</h3>
+        <p>Our first multifamily community is coming to Manassas, Virginia, bringing Engee Homes' craftsmanship to more families. Details coming soon.</p>
+        <a class="link" href="#/develop">Plan a development with NestQuest →</a></div>
+      </div>
+      <div class="card projectCard">
+        <img src="/static/img/about/md-wv-property.jpg" alt="Property in Maryland or West Virginia">
+        <div><span class="status soon">Growing</span><h3>The DMV and beyond</h3>
+        <p>We're excited to grow beyond Northern Virginia, across the DMV and further, starting with properties in Maryland and West Virginia. More to come.</p></div>
+      </div>
+    </div>
+
+    <h2 class="sectionTitle" id="about-insights">Design insights</h2>
+    <div class="insights">
+      <div class="card insight"><img src="/static/img/about/multigenerational.jpg" alt="">
+        <div><h3>Multigenerational living</h3><p>We customize floor plans for families who live together, like a first-floor in-law suite with its own kitchen for truly independent living, designed to take in the view from every corner.</p>
+        <span class="nqTag">Try the "In-law suite" feature in NestQuest</span></div></div>
+      <div class="card insight"><img src="/static/img/about/cultural.jpg" alt="">
+        <div><h3>Cultural customization</h3><p>Your home can reflect your heritage: traditional building styles, dedicated spaces for prayer or family gatherings, kitchens shaped by your culinary traditions, and pieces that tell your family's story.</p>
+        <span class="nqTag">Try "Prayer room" or "Spice kitchen" in NestQuest</span></div></div>
+    </div>
+
+    <div class="contact card" id="about-contact">
+      <div>
+        <span class="eyebrow">Contact us</span>
+        <h2>Let's build your vision together.</h2>
+        <p>Bring your NestQuest plan to our first meeting, and we'll take it from there.</p>
+      </div>
+      <ul class="contactList">
+        <li><b>Email</b><a href="mailto:ngupta@snapinc.net">ngupta@snapinc.net</a></li>
+        <li><b>Office</b>4080 Lafayette Center Dr, Ste 340<br>Chantilly, VA 20151</li>
+        <li><b>Where we build</b>Based in Northern Virginia, expanding across the DMV and beyond.</li>
+        <li><b>Where NestQuest works</b>Anywhere in the U.S. Plan a home or development in any state.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STEP 1 ---------------------------------------------------------- -->
+  <section id="view-form" class="view hidden">
+    <div class="hero">
+      <h1>Plan a home you can <em>actually</em> build.</h1>
+      <p>Tell us your budget, your lot and the home you picture. NestQuest's AI team designs three options, prices them with real construction data for your state, and tells you plainly what works and what doesn't.</p>
+      <button type="button" class="link" id="exampleBtn">Fill in an example project →</button>
+    </div>
+
+    <div id="keyWarning" class="notice warn hidden">
+      <b>API key not found.</b> Add <code>PORTKEY_API_KEY</code> to a <code>.env</code> file in the project folder or the folder above it, then restart the app.
+    </div>
+
+    <form id="projectForm" class="card form" novalidate>
+      <fieldset>
+        <legend><span class="num">1</span> Where you're building</legend>
+        <div class="grid g3">
+          <label>State<select name="state_code" required></select></label>
+          <label>City or town <span class="opt">optional</span><input name="city" maxlength="80" placeholder="e.g. Hamden"></label>
+          <div class="field">
+            <span class="lbl">Do you own the land?</span>
+            <div class="seg" data-name="owns_land">
+              <button type="button" data-v="true" class="on">Yes</button><button type="button" data-v="false">Not yet</button>
+            </div>
+          </div>
+          <label>Lot width (ft)<input name="lot_width_ft" type="number" min="21" max="2000" value="80" required></label>
+          <label>Lot depth (ft)<input name="lot_depth_ft" type="number" min="21" max="4000" value="125" required></label>
+          <label id="landCostField" class="hidden">Land price ($)<input name="land_cost" inputmode="numeric" class="money" value="0"></label>
+        </div>
+        <p class="hint" id="lotHint"></p>
+        <div class="propertyBlock"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="num">2</span> Budget &amp; size</legend>
+        <div class="grid g3">
+          <label>Total budget ($)<input name="budget_total" inputmode="numeric" class="money big" value="550,000" required>
+            <span class="hint">Everything: construction, garage, fees<span id="landIncl" class="hidden">, and land</span>.</span></label>
+          <div class="field"><span class="lbl">Bedrooms</span>
+            <div class="stepper" data-name="bedrooms" data-min="0" data-max="8" data-step="1"><button type="button">−</button><output>3</output><button type="button">+</button></div></div>
+          <div class="field"><span class="lbl">Bathrooms</span>
+            <div class="stepper" data-name="bathrooms" data-min="1" data-max="8" data-step="0.5"><button type="button">−</button><output>2</output><button type="button">+</button></div></div>
+          <div class="field"><span class="lbl">Stories</span>
+            <div class="seg" data-name="stories"><button type="button" data-v="1">1</button><button type="button" data-v="2">2</button><button type="button" data-v="3">3</button><button type="button" data-v="4">4</button><button type="button" data-v="any" class="on">Any</button></div></div>
+          <label>Target size (sq ft) <span class="opt">optional</span><input name="target_sqft" type="number" min="400" max="15000" placeholder="e.g. 2,000"></label>
+          <div class="field"><span class="lbl">Garage</span>
+            <div class="seg" data-name="garage_cars"><button type="button" data-v="0">None</button><button type="button" data-v="1">1-car</button><button type="button" data-v="2" class="on">2-car</button><button type="button" data-v="3">3-car</button></div></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="num">3</span> Look &amp; build</legend>
+        <span class="lbl">Style</span>
+        <div class="styles" data-name="style"></div>
+        <div class="grid g2">
+          <div class="field"><span class="lbl">Finish level</span>
+            <div class="seg" data-name="finish_level"><button type="button" data-v="essential">Essential</button><button type="button" data-v="standard" class="on">Standard</button><button type="button" data-v="premium">Premium</button><button type="button" data-v="luxury">Luxury</button></div>
+            <span class="hint" id="finishHint"></span></div>
+          <label>Construction method<select name="construction">
+            <option value="wood_frame">Wood frame (most common)</option>
+            <option value="icf_concrete">Insulated concrete (ICF)</option>
+            <option value="steel_frame">Steel frame</option>
+            <option value="modular">Modular / prefab</option></select></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="num">4</span> Interior preferences</legend>
+        <div id="interiorPrefs" class="interiorPrefs"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="num">5</span> Must-haves &amp; features</legend>
+        <div id="mustHaves"></div>
+        <label class="notes">Anything else we should know? <span class="opt">optional</span>
+          <textarea name="notes" maxlength="1500" rows="3" placeholder="e.g. We have two kids and both work from home. We'd love a big kitchen that opens to the backyard."></textarea></label>
+        <details class="rules">
+          <summary>Know your town's zoning rules? <span class="opt">optional, improves accuracy</span></summary>
+          <p class="hint">Leave blank to use typical single-family defaults. Your town's zoning office or website lists these.</p>
+          <div class="grid g5">
+            <label>Front setback (ft)<input name="z_front_setback_ft" type="number" min="0" max="200"></label>
+            <label>Side setback (ft)<input name="z_side_setback_ft" type="number" min="0" max="100"></label>
+            <label>Rear setback (ft)<input name="z_rear_setback_ft" type="number" min="0" max="200"></label>
+            <label>Max height (ft)<input name="z_max_height_ft" type="number" min="12" max="80"></label>
+            <label>Max lot coverage (%)<input name="z_max_lot_coverage_pct" type="number" min="5" max="100"></label>
+          </div>
+        </details>
+      </fieldset>
+
+      <div class="formfoot">
+        <p class="err hidden" id="formErr"></p>
+        <button type="submit" class="btn primary big" id="planBtn">Find my home options</button>
+        <p class="hint">Takes about a minute. Estimates are for planning, not contractor quotes.</p>
+      </div>
+    </form>
+  </section>
+
+  <!-- WORKING ------------------------------------------------------- -->
+  <section id="view-working" class="view hidden">
+    <div class="card working">
+      <h2>Your design team is working…</h2>
+      <p class="sub">Each step below is a separate AI agent or calculator. This usually takes under a minute.</p>
+      <ol class="pipeline" id="pipeline"></ol>
+      <ul class="livefeed" id="livefeed"></ul>
+    </div>
+  </section>
+
+  <!-- STEP 2 ---------------------------------------------------------- -->
+  <section id="view-options" class="view hidden">
+    <div class="optionsHead">
+      <div>
+        <h2>Your three home options</h2>
+        <p class="sub" id="briefSummary"></p>
+      </div>
+      <button class="btn ghost" id="editBtn">← Edit project</button>
+    </div>
+    <div id="guardNotice" class="notice info hidden"></div>
+    <div class="card recBanner" id="adviceCard"></div>
+    <div class="options" id="options"></div>
+    <div class="summaryRow">
+      <div class="card mini" id="siteCard"></div>
+      <div class="card mini wide" id="notesCard"></div>
+    </div>
+  </section>
+
+  <!-- STEP 3 ---------------------------------------------------------- -->
+  <section id="view-refine" class="view hidden">
+    <div class="optionsHead">
+      <div><h2 id="refineTitle"></h2><p class="sub" id="refineTag"></p></div>
+      <button class="btn ghost" id="backBtn">← All options</button>
+    </div>
+    <div class="refine">
+      <div class="card designPane" id="designPane"></div>
+      <aside class="card chat">
+        <h3>Refine with NestQuest</h3>
+        <p class="sub">Ask for changes in plain words. The plan, cost and checks update each time.</p>
+        <div class="msgs" id="msgs"></div>
+        <div class="suggest" id="suggest"></div>
+        <form id="chatForm" class="chatForm">
+          <input id="chatInput" maxlength="600" placeholder="e.g. Add a home office near the front door" autocomplete="off">
+          <button class="btn primary" id="sendBtn">Send</button>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <!-- DEVELOPMENT: FORM ------------------------------------------------ -->
+  <section id="view-dev-form" class="view hidden">
+    <div class="hero">
+      <span class="eyebrow">For developers</span>
+      <h1>Plan a multi-family development.</h1>
+      <p>Duplexes, fourplexes, townhomes or a small apartment building. NestQuest designs three site plans, checks them against your lot and zoning, and prices the whole development: cost per unit, parking and expected returns.</p>
+      <button type="button" class="link" id="devExampleBtn">Fill in an example site →</button>
+    </div>
+    <form id="devForm" class="card form" novalidate>
+      <fieldset>
+        <legend><span class="num">1</span> The site</legend>
+        <div class="grid g3">
+          <label>State<select name="state_code" required></select></label>
+          <label>City or town <span class="opt">optional</span><input name="city" maxlength="80" placeholder="e.g. Leesburg"></label>
+          <div class="field"><span class="lbl">Do you own the land?</span>
+            <div class="seg" data-name="owns_land"><button type="button" data-v="true" class="on">Yes</button><button type="button" data-v="false">Not yet</button></div></div>
+          <label>Site width (ft)<input name="lot_width_ft" type="number" min="40" max="3000" value="200" required></label>
+          <label>Site depth (ft)<input name="lot_depth_ft" type="number" min="40" max="3000" value="250" required></label>
+          <label class="landCost hidden">Land price ($)<input name="land_cost" inputmode="numeric" class="money" value="0"></label>
+        </div>
+        <p class="hint lotHint"></p>
+        <div class="propertyBlock"></div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="num">2</span> The program</legend>
+        <span class="lbl">Building type</span>
+        <div class="styles typeCards" data-name="product"></div>
+        <div class="grid g3">
+          <label>Total budget ($)<input name="budget_total" inputmode="numeric" class="money big" value="4,500,000" required>
+            <span class="hint">All-in: construction, parking, soft costs<span class="landIncl hidden">, and land</span>.</span></label>
+          <label>Target number of units <span class="opt">optional</span><input name="target_units" type="number" min="2" max="300" placeholder="e.g. 16"></label>
+          <label>Max stories<select name="max_stories"><option value="">No limit</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select></label>
+          <div class="field"><span class="lbl">Unit types wanted</span>
+            <div class="chips small" data-name="unit_types">
+              <button type="button" class="chip" data-v="studio">Studio</button><button type="button" class="chip on" data-v="1br">1 BR</button><button type="button" class="chip on" data-v="2br">2 BR</button><button type="button" class="chip" data-v="3br">3 BR</button></div></div>
+          <label>Parking spaces per unit<input name="parking_per_unit" type="number" min="0" max="3" step="0.25" value="1.5"></label>
+          <div class="field"><span class="lbl">Finish level</span>
+            <div class="seg" data-name="finish_level"><button type="button" data-v="essential">Essential</button><button type="button" data-v="standard" class="on">Standard</button><button type="button" data-v="premium">Premium</button></div></div>
+        </div>
+        <span class="lbl" style="margin-top:16px">Style</span>
+        <div class="styles devStyles" data-name="style"></div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="num">3</span> Returns <span class="opt">optional, for cost-vs-value math</span></legend>
+        <div class="grid g3">
+          <div class="field"><span class="lbl">Plan to</span>
+            <div class="seg" data-name="exit"><button type="button" data-v="rent" class="on">Rent the units</button><button type="button" data-v="sell">Sell the units</button></div></div>
+          <label class="exitRent">Average rent per unit ($/month)<input name="avg_rent" inputmode="numeric" class="money" placeholder="e.g. 2,200"></label>
+          <label class="exitSell hidden">Average sale price per unit ($)<input name="avg_sale_price" inputmode="numeric" class="money" placeholder="e.g. 450,000"></label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="num">4</span> Amenities &amp; notes</legend>
+        <div class="chips" id="devAmenities"></div>
+        <label class="notes">Anything else? <span class="opt">optional</span>
+          <textarea name="notes" maxlength="1500" rows="3" placeholder="e.g. Workforce housing near a transit stop; we'd like a shared green space."></textarea></label>
+        <details class="rules">
+          <summary>Know the zoning rules? <span class="opt">optional, improves accuracy</span></summary>
+          <p class="hint">Leave blank to use typical defaults for the building type.</p>
+          <div class="grid g3">
+            <label>Front setback (ft)<input name="z_front_setback_ft" type="number" min="0" max="200"></label>
+            <label>Side setback (ft)<input name="z_side_setback_ft" type="number" min="0" max="100"></label>
+            <label>Rear setback (ft)<input name="z_rear_setback_ft" type="number" min="0" max="200"></label>
+            <label>Max height (ft)<input name="z_max_height_ft" type="number" min="12" max="120"></label>
+            <label>Max lot coverage (%)<input name="z_max_lot_coverage_pct" type="number" min="5" max="100"></label>
+            <label>Max density (units/acre)<input name="z_max_units_per_acre" type="number" min="1" max="200"></label>
+          </div>
+        </details>
+      </fieldset>
+      <div class="formfoot">
+        <p class="err hidden" id="devErr"></p>
+        <button type="submit" class="btn primary big" id="devPlanBtn">Design my site plans</button>
+        <p class="hint">Takes about a minute. Planning estimates, not contractor bids or appraisals.</p>
+      </div>
+    </form>
+  </section>
+
+  <!-- DEVELOPMENT: OPTIONS ---------------------------------------------- -->
+  <section id="view-dev-options" class="view hidden">
+    <div class="optionsHead">
+      <div><h2>Your three site plans</h2><p class="sub" id="devBrief"></p></div>
+      <a class="btn ghost" href="#/develop">← Edit site</a>
+    </div>
+    <div id="devGuard" class="notice info hidden"></div>
+    <div class="card recBanner" id="devAdvice"></div>
+    <div class="options" id="devOptions"></div>
+    <div class="summaryRow">
+      <div class="card mini" id="devSite"></div>
+      <div class="card mini wide" id="devNotes"></div>
+    </div>
+  </section>
+
+  <!-- DEVELOPMENT: REFINE ----------------------------------------------- -->
+  <section id="view-dev-refine" class="view hidden">
+    <div class="optionsHead">
+      <div><h2 id="devRefineTitle"></h2><p class="sub" id="devRefineTag"></p></div>
+      <button class="btn ghost" id="devBackBtn">← All site plans</button>
+    </div>
+    <div class="refine">
+      <div class="card designPane" id="devPane"></div>
+      <aside class="card chat" id="devChat">
+        <h3>Refine with NestQuest</h3>
+        <p class="sub">Ask for changes in plain words. The site plan, costs and returns update each time.</p>
+        <div class="msgs"></div>
+        <div class="suggest"></div>
+        <form class="chatForm">
+          <input maxlength="600" placeholder="e.g. Swap two 1BRs for 3BRs" autocomplete="off">
+          <button class="btn primary">Send</button>
+        </form>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<!-- How it worked drawer -->
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawerHead"><h3>How NestQuest worked</h3><button class="x" id="drawerClose" aria-label="Close">×</button></div>
+  <div id="usageTable"></div>
+  <h4>Step-by-step trace</h4>
+  <ol class="trace" id="trace"></ol>
+</aside>
+
+<!-- Sources modal -->
+<div class="modal hidden" id="sourcesModal" role="dialog" aria-modal="true" aria-labelledby="srcTitle">
+  <div class="card modalBody">
+    <button class="x" data-close aria-label="Close">×</button>
+    <h3 id="srcTitle">Where the numbers come from</h3>
+    <div id="sourcesBody"></div>
+  </div>
+</div>
+
+<footer class="foot">
+  <span>© 2026 Engee Homes · Based in Northern Virginia, growing across the DMV and beyond. NestQuest works anywhere in the U.S. NestQuest gives planning estimates, not contractor quotes or legal advice. Confirm zoning with your town and pricing with a licensed builder.</span>
+  <button class="link" id="sourcesBtn">Sources &amp; assumptions</button>
+</footer>
+
+<script src="/static/app.js?v=21"></script>
+<script src="/static/forms.js?v=21"></script>
+<script src="/static/dev.js?v=21"></script>
+<script type="module" src="/static/viewer3d.js?v=21"></script>
+</body>
+</html>

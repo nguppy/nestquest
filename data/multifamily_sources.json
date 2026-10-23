@@ -1,0 +1,218 @@
+{
+  "compiled": "2026-10-22",
+  "compiled_note": "Every value below was read from the fetched source text (PDF text extraction or page HTML). Items that could not be confirmed from a primary public source are listed in 'not_found'. Derived values are flagged with 'derived': true and the derivation is described in 'note'.",
+  "items": [
+    {
+      "key": "mf_hard_cost_psf_rlb_city_ranges",
+      "value": {
+        "Austin": {"low": 185, "high": 275},
+        "Boston": {"low": 290, "high": 390},
+        "Charlotte": {"low": 215, "high": 365},
+        "Chicago": {"low": 220, "high": 490},
+        "Dallas": {"low": 190, "high": 280},
+        "Denver": {"low": 225, "high": 400},
+        "Honolulu": {"low": 310, "high": 520},
+        "Las Vegas": {"low": 215, "high": 510},
+        "Los Angeles": {"low": 270, "high": 440},
+        "Miami": {"low": 190, "high": 290},
+        "Minneapolis": {"low": 245, "high": 435},
+        "Nashville": {"low": 215, "high": 375},
+        "New York": {"low": 255, "high": 500},
+        "Phoenix": {"low": 200, "high": 295},
+        "Portland": {"low": 350, "high": 450},
+        "San Francisco": {"low": 420, "high": 700},
+        "Seattle": {"low": 290, "high": 495},
+        "Washington, D.C.": {"low": 220, "high": 370}
+      },
+      "unit": "USD per sq ft of gross floor area (hard construction cost)",
+      "source_title": "Rider Levett Bucknall, North America Quarterly Construction Cost Report, Q2 2026 - 'Indicative Construction Costs' table, Residential: Multi-Family",
+      "source_url": "https://www.rlb.com/wp-content/uploads/sites/4/2026/06/Q2-2026-QCR_7.7.2026.pdf",
+      "year": 2026,
+      "note": "Report states: 'Values of U.S. locations represent hard construction costs based on U.S. dollars per square foot of gross floor area.' Category is generic 'Multi-Family' (not specific to garden-style wood frame) and covers 18 large metros only; no national average is published. Low end of each range is the closest proxy for simple low-rise wood-frame product, but RLB does not say so."
+    },
+    {
+      "key": "mf_hard_cost_psf_rlb_18city_mean",
+      "value": {"low": 250.28, "high": 421.11},
+      "unit": "USD per sq ft of gross floor area (hard construction cost)",
+      "source_title": "Rider Levett Bucknall, North America Quarterly Construction Cost Report, Q2 2026",
+      "source_url": "https://www.rlb.com/wp-content/uploads/sites/4/2026/06/Q2-2026-QCR_7.7.2026.pdf",
+      "year": 2026,
+      "derived": true,
+      "note": "DERIVED, not published by RLB: simple unweighted mean of the 18 U.S. city Multi-Family low values (4505/18) and high values (7580/18). Big-metro-weighted; likely overstates costs for small-town/suburban garden product."
+    },
+    {
+      "key": "mf_hard_cost_psf_california_terner_2018",
+      "value": 222,
+      "unit": "USD per sq ft (hard cost, 2018 dollars, weighted average per project sq ft)",
+      "source_title": "Terner Center for Housing Innovation (UC Berkeley), 'The Hard Costs of Construction: Recent Trends in Labor and Materials Costs for Apartment Buildings in California' (March 2020)",
+      "source_url": "https://ternercenter.berkeley.edu/wp-content/uploads/2020/08/Hard_Construction_Costs_March_2020.pdf",
+      "year": 2018,
+      "note": "Quote: 'In 2008-2009, hard costs averaged $177 per square foot. By 2018 that average had risen to $222 per square foot--a 25 percent increase.' California only; dataset of 240 multifamily projects 2009-2018 (largely publicly subsidized). Context value, not a national figure."
+    },
+    {
+      "key": "mf_hard_cost_share_of_tdc_terner",
+      "value": 0.60,
+      "unit": "share of total development cost (lower bound: 'more than sixty percent')",
+      "source_title": "Terner Center, 'The Hard Costs of Construction...' (March 2020)",
+      "source_url": "https://ternercenter.berkeley.edu/wp-content/uploads/2020/08/Hard_Construction_Costs_March_2020.pdf",
+      "year": 2020,
+      "note": "Quote: 'Hard construction costs comprise more than sixty percent of total development costs.' California. Implies land + soft costs are under 40% of TDC combined; does not separate soft costs from land."
+    },
+    {
+      "key": "mf_soft_cost_share_of_tdc_new_construction_non_lihtc",
+      "value": 0.17,
+      "unit": "share of total development cost (TDC)",
+      "source_title": "Minnesota Housing, 'Evaluating Affordable Housing Efforts: Cost Containment Report 2018', Table 1: Share of TDC by Project Type, Location and Cost Component",
+      "source_url": "https://www.leg.mn.gov/docs/2018/other/181053.pdf",
+      "year": 2018,
+      "note": "Multifamily developments financed by Minnesota Housing, completed 2003-2017 (2018 dollars). New construction without LIHTC: Metro = construction 72% / acquisition 11% / soft 17% (n=18); Greater MN = 72% / 11% / 17% (n=15). With LIHTC, soft costs are 24% (Metro, n=74) and 22% (Greater MN, n=48). Report text: 'For developments without tax credits, soft costs account for 14 percent to 17 percent of TDC' (the 14% is rehab). State-level, affordable-housing-agency portfolio; not a national market-rate figure."
+    },
+    {
+      "key": "mf_soft_cost_share_of_tdc_new_construction_lihtc",
+      "value": {"low": 0.22, "high": 0.24},
+      "unit": "share of total development cost (TDC)",
+      "source_title": "Minnesota Housing, 'Evaluating Affordable Housing Efforts: Cost Containment Report 2018', Table 1",
+      "source_url": "https://www.leg.mn.gov/docs/2018/other/181053.pdf",
+      "year": 2018,
+      "note": "New construction with tax credits: 22% (Greater MN) to 24% (Twin Cities Metro). Tax-credit deals carry extra soft costs; use the non-LIHTC 17% for market-rate small developers."
+    },
+    {
+      "key": "mf_regulation_share_of_tdc",
+      "value": 0.406,
+      "unit": "share of total multifamily development cost",
+      "source_title": "Paul Emrath (NAHB) and Caitlin Sugrue Walter (NMHC), 'Regulation: 40.6 Percent of the Cost of Multifamily Development' (June 2022)",
+      "source_url": "https://www.nahb.org/-/media/539A91157F91426CA5F93F472698DF2E.ashx",
+      "year": 2022,
+      "note": "Survey of NAHB/NMHC members in April 2022, 49 usable responses. This is the cost attributable to regulation (largest item: changes to building codes over the past 10 years = 11.1% of TDC; zoning approval averages 3.4% when present), NOT a soft-cost share; it overlaps hard costs (e.g. code changes). Do not use as a soft-cost percentage."
+    },
+    {
+      "key": "parking_structured_cost_per_space_2026",
+      "value": 33300,
+      "unit": "USD per space (hard construction cost, national median, above-grade parking structure)",
+      "source_title": "WGI, 2026 Parking Structure Cost Outlook (as reported by the National Parking Association / Parking & Mobility, and WGI webinar recap Jul 31, 2026)",
+      "source_url": "https://www.parking-mobility.org/news/wgi-releases-2026-parking-structure-cost-outlook/",
+      "year": 2026,
+      "note": "Quote: '$33,300 per parking space, or $98.75 per square foot. This represents a 6% increase over the 2025 median cost of $31,400 per space.' and 'The published figures represent hard construction costs only.' Also confirmed $33,300 at https://wginc.com/webinar-recap-2026-parking-cost-outlook/ . WGI's own report page (https://publications.wginc.com/parking-cost-outlook-for-2026) is gated and could not be read directly. Excludes underground parking."
+    },
+    {
+      "key": "parking_structured_cost_psf_2026",
+      "value": 98.75,
+      "unit": "USD per sq ft of parking structure (hard cost, national median)",
+      "source_title": "WGI, 2026 Parking Structure Cost Outlook (via Parking & Mobility / BD+C)",
+      "source_url": "https://www.bdcnetwork.com/building-sector-reports/transportation-parking-facilities/article/55403221/parking-structure-construction-cost-up-6-in-2026",
+      "year": 2026,
+      "note": "Quote: 'the median structure construction cost reached $33,300 per space, or $98.75 per square foot.'"
+    },
+    {
+      "key": "parking_structured_soft_cost_addon",
+      "value": {"low": 0.15, "high": 0.25},
+      "unit": "fraction added on top of parking structure construction cost",
+      "source_title": "WGI, Parking Structure Cost Outlook for 2024 (PDF)",
+      "source_url": "https://publications.wginc.com/hubfs/WGIs%20Parking%20Structure%20Cost%20Outlook%20for%202024.pdf",
+      "year": 2024,
+      "note": "Quote: 'Soft costs typically add about 15% to 25% to the actual construction costs.' Same 2024 report: national median $29,900 per space / $89.45 per sq ft (May 2024)."
+    },
+    {
+      "key": "parking_surface_cost_per_space_low",
+      "value": 5000,
+      "unit": "USD per space (construction, 2022 dollars, excludes land) - stated as a minimum ('as little as')",
+      "source_title": "Ventura County Planning Division, 'Parking & Loading Design Guidelines' (Nov 2009, updated July 2022)",
+      "source_url": "https://rma.venturacounty.gov/wp-content/uploads/2024/04/parking-and-loading-design-guidelines.pdf",
+      "year": 2022,
+      "note": "Quote: 'Construction costs for new parking range from as little as $5,000 per space for surface parking to $25,000 or more for structured or underground parking (2022 dollars). Annual maintenance costs can be as much as $1,000 per space. This does not include the cost of the land beneath the space.' Lower bound only, not an average."
+    },
+    {
+      "key": "parking_surface_cost_per_space_residential",
+      "value": 20000,
+      "unit": "USD per space (surface parking, typical residential project)",
+      "source_title": "Todd Litman, VTPI, 'Transportation Cost and Benefit Analysis II - 5.4 Parking Costs' (3 October 2022), citing Ryan DiRaimo (2021), 'Seattle Has the Space', The Urbanist",
+      "source_url": "https://vtpi.org/tca/tca0504.pdf",
+      "year": 2021,
+      "note": "Quote: 'DiRaimo estimated that for typical residential projects, surface parking costs $20,000 and underground costs $30,000.' Secondary citation of a Seattle blog estimate; likely includes land in a high-cost market. Together with the $5,000 Ventura figure this brackets surface cost very widely - treat surface construction cost as poorly sourced."
+    },
+    {
+      "key": "parking_structure_cost_per_space_2022_carl_walker_adj",
+      "value": 25267,
+      "unit": "USD per space (basic parking structure, national average, 2022 dollars)",
+      "source_title": "VTPI, '5.4 Parking Costs' (3 October 2022), Table 5.4.3-5, from Carl Walker (2016) 'Mean Construction Costs' inflated 30%",
+      "source_url": "https://vtpi.org/tca/tca0504.pdf",
+      "year": 2022,
+      "note": "National Average $75.65/sq ft, $25,267/space. VTPI states original 2016 Carl Walker values were 'increased 30% to reflect 2015 to 2022 construction inflation.' VTPI also states soft costs for parking facilities 'typically add 30-40% to a project, plus any incremental land costs.' Superseded by WGI 2026 for current use."
+    },
+    {
+      "key": "parking_surface_sqft_per_space_incl_aisles",
+      "value": {"low": 250, "high": 350},
+      "unit": "sq ft of land per off-street space, including access lanes and landscaping",
+      "source_title": "VTPI, 'Transportation Cost and Benefit Analysis II - 5.4 Parking Costs' (3 October 2022)",
+      "source_url": "https://vtpi.org/tca/tca0504.pdf",
+      "year": 2022,
+      "note": "Quote: 'A typical parking space is 8-10 feet wide and 18-20 feet long, totaling 144-200 square feet. Off-street parking typically requires 250-350 square feet per space, including access lanes and landscaping, allowing 125-175 spaces per acre ... A survey of six typical parking lots found that they average of 85 spaces per acre.'"
+    },
+    {
+      "key": "apartment_opex_share_of_rent_naa",
+      "value": 0.45,
+      "unit": "share of each rent dollar (operating costs + property taxes + payroll + capex)",
+      "source_title": "National Apartment Association, 'Where Does a Dollar of Rent Go?' (published Feb 24, 2026; 2024 financial data, 16,000+ properties)",
+      "source_url": "https://naahq.org/news/where-does-dollar-rent-go",
+      "year": 2024,
+      "derived": true,
+      "note": "Published breakdown per rent dollar: mortgage payments 44 cents, operating costs 27 cents (insurance, utilities, maintenance), property taxes 10 cents, payroll 7 cents, capital expenditures 1 cent, profit 11 cents. DERIVED: 27+10+7 = 44 cents opex excluding capex (0.44), 45 cents including the 1-cent capex reserve (0.45). Base is 'rent dollar' (collected revenue), which is the closest public proxy for EGI; NAA does not label it EGI."
+    },
+    {
+      "key": "rental_vacancy_rate_us_q2_2026",
+      "value": 0.073,
+      "unit": "rental vacancy rate (fraction), not seasonally adjusted",
+      "source_title": "U.S. Census Bureau, Quarterly Residential Vacancies and Homeownership, Second Quarter 2026 (Release CB26-116, July 28, 2026), CPS/Housing Vacancy Survey",
+      "source_url": "https://www.census.gov/housing/hvs/files/qtr226/Q226press.pdf",
+      "year": 2026,
+      "note": "Quote: 'National vacancy rates in the second quarter 2026 were 7.3 percent for rental housing ... not statistically different from the rate in the second quarter 2025 (7.0 percent) and virtually the same as the rate in the first quarter 2026 (7.3 percent).' Next release Oct 28, 2026 (Q3 2026) - check for update. Covers all rental housing, not only multifamily."
+    },
+    {
+      "key": "apartment_net_to_gross_efficiency",
+      "value": {"low": 0.70, "high": 0.75},
+      "unit": "net rentable area / gross building area",
+      "source_title": "Donald Meeks, 'Cost Cutters', Multifamily Executive (June 3, 2005)",
+      "source_url": "https://www.multifamilyexecutive.com/design-development/design/cost-cutters_o",
+      "year": 2005,
+      "note": "Quote: 'Commercial projects have always considered the net-to-gross ratio (the ratio of net rentable space versus total gross building space) and are usually 82 percent to 85 percent efficient, while apartments have been far less efficient, with an average ratio of 70 percent to 75 percent.' Trade-press article, old, not garden-specific (garden walk-ups with open-air stairs are typically more efficient than corridor buildings, but no source for that was found)."
+    },
+    {
+      "key": "density_townhomes_units_per_acre",
+      "value": {"low": 12, "high": 18},
+      "unit": "dwelling units per acre",
+      "source_title": "JHP Architecture/Urban Design density rules of thumb, submitted as written testimony (Ginn Group) to Clark County, WA 2025 Comprehensive Plan Update record (Nov 4, 2024)",
+      "source_url": "https://websvc2.clark.wa.gov/CommunityPlanning/2025CompPlanUpdate/36702724.pdf",
+      "year": 2024,
+      "note": "'Townhomes or Rowhouses 12-18 units/acre'. Same doc: Single Family Cluster 10-12; Cluster/Manor homes (2-3 story walk-up small MF) 15-22. Private-firm rules of thumb in a public planning record; document itself says it 'is not the be-all and end-all when it comes to density.'"
+    },
+    {
+      "key": "density_garden_apartments_units_per_acre",
+      "value": {"low": 18, "high": 25},
+      "unit": "dwelling units per acre",
+      "source_title": "JHP Architecture/Urban Design density rules of thumb, in Clark County, WA 2025 Comprehensive Plan Update record (Nov 4, 2024)",
+      "source_url": "https://websvc2.clark.wa.gov/CommunityPlanning/2025CompPlanUpdate/36702724.pdf",
+      "year": 2024,
+      "note": "'Garden Apartments ... 18-25 units/acre ... Two to three stories; walk-up with open-air stairways; Organized with surface parking in front and around.'"
+    },
+    {
+      "key": "density_planning_board_housing_types",
+      "value": {"urban_townhouses": {"low": 10, "high": 18}, "garden_walkup_multifamily": {"low": 20, "high": 30}, "stacked_townhouses": {"low": 18, "high": 25}},
+      "unit": "dwelling units per acre",
+      "source_title": "Montgomery County Planning (M-NCPPC), 'Housing Types Presentation', Germantown Citizens Advisory Committee (June 2007)",
+      "source_url": "https://www.montgomeryplanning.org/community/germantown/documents/HousingTypesWagnerJune07.pdf",
+      "year": 2007,
+      "note": "Slide values are printed with question marks (e.g. 'Urban Townhouses 10 to 18 per acre?', 'Multi-family, garden style walkup 20 to 30 per acre?'), i.e. presented as approximate. Older presentation."
+    }
+  ],
+  "not_found": [
+    "NAHB 'Cost of Constructing a Multifamily Building' - no such NAHB publication was found; NAHB's cost-of-construction survey covers single-family only.",
+    "A national-average hard cost per sq ft specifically for garden-style / 2-4 story wood-frame apartments from a free primary source (RSMeans 'Apartment 1-3 Story' model exists but is paywalled; BD+C 2026 RSMeans article covers 4-7 story and its table did not render; Fannie Mae PDFs returned HTTP 403).",
+    "Townhome / attached single-family construction cost per sq ft from a primary public source.",
+    "Duplex / triplex / fourplex construction cost per sq ft.",
+    "A national market-rate soft-cost share for multifamily (only Minnesota Housing agency-portfolio data found).",
+    "Opex ratio expressed explicitly as % of EGI from NAA IES, IREM, Fannie Mae or Freddie Mac (IES/IREM are paywalled; NAA Dollar-of-Rent used as proxy).",
+    "A national average surface parking construction cost per space (only a $5,000 lower bound and a $20,000 Seattle residential estimate).",
+    "A garden-apartment-specific net-to-gross efficiency factor.",
+    "A planning-document density figure for duplexes."
+  ]
+}

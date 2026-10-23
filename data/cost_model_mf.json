@@ -1,0 +1,251 @@
+{
+  "_about": "NestQuest multi-family cost model. 'sourced' values come from data/multifamily_sources.json or cost_sources.json; 'derived' values are simple calculations from sourced numbers; 'assumption' values are NestQuest planning assumptions. All are shown as such in the app.",
+  "products": {
+    "duplex": {
+      "label": "Duplexes",
+      "units_per_building": [
+        2,
+        2
+      ],
+      "depth_ft": 40,
+      "base": "nahb",
+      "efficiency": 1.0,
+      "default_density": 12,
+      "default_stories": 2
+    },
+    "fourplex": {
+      "label": "Fourplexes",
+      "units_per_building": [
+        3,
+        4
+      ],
+      "depth_ft": 50,
+      "base": "nahb",
+      "efficiency": 0.95,
+      "default_density": 22,
+      "default_stories": 2
+    },
+    "townhomes": {
+      "label": "Townhomes",
+      "units_per_building": [
+        3,
+        8
+      ],
+      "depth_ft": 40,
+      "base": "nahb",
+      "efficiency": 1.0,
+      "default_density": 18,
+      "default_stories": 3
+    },
+    "garden_apartments": {
+      "label": "Garden apartments",
+      "units_per_building": [
+        8,
+        48
+      ],
+      "depth_ft": 65,
+      "base": "rlb",
+      "efficiency": 0.725,
+      "default_density": 25,
+      "default_stories": 3
+    }
+  },
+  "hard_cost_per_sqft": {
+    "nahb": {
+      "value": 162,
+      "source": "sourced",
+      "cite": "NAHB Cost of Constructing a Home-2024: $162 per finished sq ft (single-family; used for attached townhomes, duplexes and fourplexes, which NAHB does not survey separately)."
+    },
+    "rlb": {
+      "value": 250,
+      "source": "sourced (derived)",
+      "cite": "Rider Levett Bucknall, North America Quarterly Construction Cost Report Q2 2026, 'Multi-Family' $/sq ft of gross floor area: simple mean of the low end across 18 US cities ($250). Big-city data, so likely on the high side for suburban garden apartments."
+    }
+  },
+  "gc_overhead_pct_nahb": {
+    "value": 0.089,
+    "source": "sourced (derived)",
+    "cite": "NAHB 2024 sales-price breakdown: builder overhead 5.7% of price vs construction 64.4% -> 0.089 of construction cost. Added to NAHB-based products only (RLB hard costs already include the contractor)."
+  },
+  "soft_cost_pct_of_hard": {
+    "value": 0.205,
+    "source": "sourced (derived)",
+    "cite": "Minnesota Housing (2018): soft costs are 17% of total development cost for new construction without tax credits -> 0.17 / 0.83 = 20.5% of hard costs. One state agency's portfolio; no national market-rate figure was found."
+  },
+  "contingency_pct": {
+    "value": 0.1,
+    "source": "assumption",
+    "cite": "Common 10% hard + soft cost contingency."
+  },
+  "parking": {
+    "surface_cost_per_space": {
+      "value": 12500,
+      "source": "assumption",
+      "cite": "Midpoint of a sourced range: Ventura County (2022) 'as little as $5,000' per space and VTPI (2021) $20,000 per space for a typical residential project."
+    },
+    "structured_cost_per_space": {
+      "value": 33300,
+      "source": "sourced",
+      "cite": "WGI 2026 Parking Structure Cost Outlook: national median $33,300 per space (hard cost)."
+    },
+    "sqft_per_surface_space": {
+      "value": 300,
+      "source": "sourced (derived)",
+      "cite": "VTPI 5.4 Parking Costs (2022): 250-350 sq ft per space including aisles and landscaping; midpoint 300."
+    }
+  },
+  "rent": {
+    "vacancy": {
+      "value": 0.073,
+      "source": "sourced",
+      "cite": "U.S. Census Bureau Housing Vacancy Survey, Q2 2026: rental vacancy rate 7.3%."
+    },
+    "opex_share": {
+      "value": 0.45,
+      "source": "sourced (derived)",
+      "cite": "National Apartment Association, 'Where Does a Dollar of Rent Go?' (2026, 2024 data): operating costs 27c + property taxes 10c + payroll 7c + capital expenditures 1c = 45c of each rent dollar."
+    }
+  },
+  "efficiency_cite": {
+    "source": "sourced",
+    "cite": "Multifamily Executive (2005): apartments average 70-75% net rentable to gross area; NestQuest uses 72.5% for garden apartments, 95% for fourplexes (shared stair) and 100% for townhomes and duplexes (assumptions)."
+  },
+  "density_cite": {
+    "source": "sourced",
+    "cite": "JHP Architecture density rules of thumb (Clark County WA plan record, 2024): townhomes 12-18, small walk-up buildings 15-22, garden apartments 18-25 units/acre. NestQuest uses the top of each range as the default limit; duplexes 12 units/acre is an assumption."
+  },
+  "zoning_defaults": {
+    "value": {
+      "front_setback_ft": 25,
+      "side_setback_ft": 15,
+      "rear_setback_ft": 25,
+      "max_height_ft": null,
+      "max_lot_coverage_pct": 50
+    },
+    "source": "assumption",
+    "cite": "Typical multi-family setbacks and lot coverage; no height limit is assumed unless you enter one, so stories are not capped. Enter your jurisdiction's rules for accuracy."
+  },
+  "finish_multipliers": {
+    "essential": 0.9,
+    "standard": 1.0,
+    "premium": 1.2
+  },
+  "building_gap_ft": 20,
+  "row_gap_ft": 30,
+  "unit_comfort_min_sqft": {
+    "0": 350,
+    "1": 550,
+    "2": 800,
+    "3": 1050,
+    "4": 1250
+  },
+  "features": {
+    "ev_charging": {
+      "label": "EV charging (10% of spaces)",
+      "type": "per_space",
+      "value": 1800,
+      "share": 0.1
+    },
+    "solar": {
+      "label": "Rooftop solar",
+      "type": "pct_of_hard",
+      "value": 0.02
+    },
+    "clubhouse": {
+      "label": "Clubhouse / community room (~1,500 sq ft)",
+      "type": "area",
+      "area_sqft": 1500
+    },
+    "fitness_room": {
+      "label": "Fitness room (~600 sq ft)",
+      "type": "area",
+      "area_sqft": 600
+    },
+    "playground": {
+      "label": "Playground",
+      "type": "fixed",
+      "value": 60000
+    },
+    "green_space": {
+      "label": "Landscaped green / courtyard",
+      "type": "fixed",
+      "value": 40000
+    },
+    "bike_storage": {
+      "label": "Secure bike storage",
+      "type": "fixed",
+      "value": 15000
+    },
+    "elevator": {
+      "label": "Elevator (per building)",
+      "type": "per_building",
+      "value": 120000
+    },
+    "accessible_units": {
+      "label": "Accessible ground-floor units",
+      "type": "pct_of_hard",
+      "value": 0.01
+    },
+    "pool": {
+      "label": "Community pool",
+      "type": "fixed",
+      "value": 250000
+    },
+    "rooftop_deck": {
+      "label": "Rooftop deck (per building)",
+      "type": "per_building",
+      "value": 75000
+    },
+    "dog_park": {
+      "label": "Dog park",
+      "type": "fixed",
+      "value": 30000
+    },
+    "package_lockers": {
+      "label": "Smart package lockers",
+      "type": "fixed",
+      "value": 25000
+    },
+    "coworking_lounge": {
+      "label": "Co-working lounge (~800 sq ft)",
+      "type": "area",
+      "area_sqft": 800
+    },
+    "storage_units": {
+      "label": "Resident storage units (~600 sq ft)",
+      "type": "area",
+      "area_sqft": 600
+    },
+    "community_garden": {
+      "label": "Community garden",
+      "type": "fixed",
+      "value": 20000
+    },
+    "green_roof": {
+      "label": "Green roof (per building)",
+      "type": "per_building",
+      "value": 60000
+    },
+    "stormwater": {
+      "label": "Rain gardens & bioretention",
+      "type": "fixed",
+      "value": 50000
+    },
+    "battery_storage": {
+      "label": "Shared battery storage",
+      "type": "fixed",
+      "value": 60000
+    },
+    "in_unit_laundry": {
+      "label": "In-unit washer & dryer",
+      "type": "per_unit",
+      "value": 2500
+    },
+    "smart_access": {
+      "label": "Smart locks & keyless entry",
+      "type": "per_unit",
+      "value": 600
+    }
+  },
+  "_features_note": "Amenity costs are NestQuest planning assumptions, scaled by the state factor."
+}

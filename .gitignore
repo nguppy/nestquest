@@ -1,0 +1,23 @@
+# Secrets (never commit a real .env)
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Local tool settings and scratch work
+.claude/
+scratch/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,348 @@
+{
+  "_about": "NestQuest cost model. Entries with source 'sourced' come from cost_sources.json (NAHB 2024, DoD UFS 3-701-01 2026, IRC). Entries marked 'assumption' are NestQuest planning assumptions, shown as such in the app.",
+  "national_cost_per_sqft": {
+    "value": 162,
+    "unit": "USD per finished sq ft",
+    "source": "sourced",
+    "cite": "NAHB, Cost of Constructing a Home-2024 (Jan 2025): $428,215 average construction cost / 2,647 sq ft"
+  },
+  "construction_breakdown_shares": {
+    "value": {
+      "site_work": 0.076,
+      "foundations": 0.105,
+      "framing": 0.166,
+      "exterior_finishes": 0.134,
+      "major_systems": 0.192,
+      "interior_finishes": 0.241,
+      "final_steps": 0.065,
+      "other": 0.021
+    },
+    "source": "sourced",
+    "cite": "NAHB, Cost of Constructing a Home-2024, construction cost breakdown"
+  },
+  "builder_overhead_profit_pct": {
+    "value": 0.26,
+    "source": "sourced (derived)",
+    "cite": "NAHB 2024 sales-price breakdown: overhead 5.7% + profit 11.0% of price, vs construction 64.4% of price -> 16.7 / 64.4 = 0.26 of construction cost"
+  },
+  "garage_cost_ratio": {
+    "value": 0.43,
+    "source": "assumption",
+    "cite": "Fixr (Aug 2025) $60-80 per sq ft for a site-built garage; midpoint $70 / $162 = 0.43. Non-authoritative."
+  },
+  "contingency_pct": {
+    "value": 0.1,
+    "source": "assumption",
+    "cite": "Common 10% construction contingency for new builds"
+  },
+  "min_habitable_room_sqft": {
+    "value": 70,
+    "source": "sourced",
+    "cite": "International Residential Code R304.1 (70 sq ft, 7 ft minimum dimension; kitchens exempt)"
+  },
+  "zoning_defaults": {
+    "value": {
+      "front_setback_ft": 25,
+      "side_setback_ft": 10,
+      "rear_setback_ft": 25,
+      "max_height_ft": null,
+      "max_lot_coverage_pct": 35
+    },
+    "source": "assumption",
+    "cite": "Typical suburban single-family setbacks and lot coverage; no national standard exists. No height limit is assumed unless you enter your town's, so the number of stories is not capped. Users should enter their town's rules."
+  },
+  "finish_multipliers": {
+    "essential": 0.85,
+    "standard": 1.0,
+    "premium": 1.25,
+    "luxury": 1.6
+  },
+  "construction_multipliers": {
+    "wood_frame": 1.0,
+    "icf_concrete": 1.06,
+    "steel_frame": 1.08,
+    "modular": 0.9
+  },
+  "style_multipliers": {
+    "modern": 1.05,
+    "farmhouse": 1.0,
+    "craftsman": 1.04,
+    "colonial": 1.0,
+    "ranch": 0.98,
+    "mediterranean": 1.05
+  },
+  "story_multipliers": {
+    "1": 1.05,
+    "2": 1.0,
+    "3": 1.03,
+    "4": 1.06,
+    "5": 1.09,
+    "6": 1.12
+  },
+  "_multipliers_note": "Finish, construction, style and story multipliers are NestQuest planning assumptions relative to NAHB's average home (standard finish, wood frame, two stories).",
+  "features": {
+    "covered_porch": {
+      "label": "Covered front porch (~160 sq ft)",
+      "type": "area_ratio",
+      "area_sqft": 160,
+      "value": 0.5,
+      "group": "outdoor"
+    },
+    "deck": {
+      "label": "Rear deck (~300 sq ft)",
+      "type": "area_ratio",
+      "area_sqft": 300,
+      "value": 0.3,
+      "group": "outdoor"
+    },
+    "unfinished_basement": {
+      "label": "Unfinished basement",
+      "type": "area_ratio",
+      "area": "first_floor",
+      "value": 0.35,
+      "group": "lifestyle"
+    },
+    "finished_basement": {
+      "label": "Finished basement",
+      "type": "area_ratio",
+      "area": "first_floor",
+      "value": 0.65,
+      "group": "lifestyle"
+    },
+    "solar_panels": {
+      "label": "Rooftop solar (~6 kW)",
+      "type": "fixed",
+      "value": 18000,
+      "group": "sustainability"
+    },
+    "ev_charger": {
+      "label": "EV charger (Level 2)",
+      "type": "fixed",
+      "value": 1800,
+      "group": "sustainability"
+    },
+    "fireplace": {
+      "label": "Fireplace",
+      "type": "fixed",
+      "value": 7500,
+      "group": "lifestyle"
+    },
+    "smart_home": {
+      "label": "Smart-home package",
+      "type": "fixed",
+      "value": 5000,
+      "group": "lifestyle"
+    },
+    "accessible_design": {
+      "label": "Accessible design (zero-step entry, wide doors)",
+      "type": "pct_of_house",
+      "value": 0.03,
+      "group": "accessibility"
+    },
+    "vaulted_ceilings": {
+      "label": "Vaulted ceilings",
+      "type": "pct_of_house",
+      "value": 0.02,
+      "group": "lifestyle"
+    },
+    "solar_battery": {
+      "label": "Home battery backup",
+      "type": "fixed",
+      "value": 15000,
+      "group": "sustainability"
+    },
+    "heat_pump": {
+      "label": "All-electric heat pump HVAC",
+      "type": "pct_of_house",
+      "value": 0.01,
+      "group": "sustainability"
+    },
+    "geothermal": {
+      "label": "Geothermal heating & cooling",
+      "type": "fixed",
+      "value": 30000,
+      "group": "sustainability"
+    },
+    "high_performance_envelope": {
+      "label": "High-performance insulation & windows",
+      "type": "pct_of_house",
+      "value": 0.04,
+      "group": "sustainability"
+    },
+    "rainwater_harvesting": {
+      "label": "Rainwater harvesting",
+      "type": "fixed",
+      "value": 8000,
+      "group": "sustainability"
+    },
+    "screened_porch": {
+      "label": "Screened porch (~200 sq ft)",
+      "type": "area_ratio",
+      "area_sqft": 200,
+      "value": 0.55,
+      "group": "outdoor"
+    },
+    "patio": {
+      "label": "Stone patio (~300 sq ft)",
+      "type": "area_ratio",
+      "area_sqft": 300,
+      "value": 0.15,
+      "group": "outdoor"
+    },
+    "outdoor_kitchen": {
+      "label": "Outdoor kitchen",
+      "type": "fixed",
+      "value": 25000,
+      "group": "outdoor"
+    },
+    "pool": {
+      "label": "In-ground pool",
+      "type": "fixed",
+      "value": 70000,
+      "group": "outdoor"
+    },
+    "fenced_yard": {
+      "label": "Fenced backyard",
+      "type": "fixed",
+      "value": 12000,
+      "group": "outdoor"
+    },
+    "wine_cellar": {
+      "label": "Wine cellar",
+      "type": "fixed",
+      "value": 20000,
+      "group": "lifestyle"
+    },
+    "wet_bar": {
+      "label": "Wet bar",
+      "type": "fixed",
+      "value": 8000,
+      "group": "lifestyle"
+    },
+    "sound_system": {
+      "label": "Whole-home sound system",
+      "type": "fixed",
+      "value": 10000,
+      "group": "lifestyle"
+    },
+    "coffered_ceilings": {
+      "label": "Coffered ceilings",
+      "type": "fixed",
+      "value": 10000,
+      "group": "lifestyle"
+    },
+    "in_law_kitchenette": {
+      "label": "In-law suite kitchenette",
+      "type": "fixed",
+      "value": 20000,
+      "group": "lifestyle"
+    },
+    "spice_kitchen_fitout": {
+      "label": "Spice kitchen fit-out (ventilation, range)",
+      "type": "fixed",
+      "value": 15000,
+      "group": "lifestyle"
+    },
+    "elevator": {
+      "label": "Home elevator",
+      "type": "fixed",
+      "value": 45000,
+      "group": "accessibility"
+    },
+    "generator": {
+      "label": "Whole-home standby generator",
+      "type": "fixed",
+      "value": 15000,
+      "group": "sustainability"
+    }
+  },
+  "_features_note": "Feature costs are NestQuest planning assumptions, scaled by the state factor.",
+  "interior_costs": {
+    "_note": "NestQuest planning assumptions, relative to the standard finish package.",
+    "flooring": {
+      "hardwood": {
+        "pct": 0.025
+      },
+      "engineered_wood": {
+        "pct": 0.0
+      },
+      "lvp": {
+        "pct": -0.01
+      },
+      "tile": {
+        "pct": 0.015
+      },
+      "carpet_bedrooms": {
+        "pct": -0.015
+      }
+    },
+    "countertops": {
+      "quartz": {
+        "fixed": 0
+      },
+      "granite": {
+        "fixed": 0
+      },
+      "marble": {
+        "fixed": 9000
+      },
+      "butcher_block": {
+        "fixed": -2500
+      }
+    },
+    "kitchen_style": {
+      "white_shaker": {
+        "fixed": 0
+      },
+      "modern_flat": {
+        "fixed": 4000
+      },
+      "two_tone": {
+        "fixed": 3000
+      },
+      "natural_wood": {
+        "fixed": 6000
+      }
+    },
+    "appliances": {
+      "standard": {
+        "fixed": 0
+      },
+      "professional": {
+        "fixed": 35000
+      }
+    },
+    "ceiling_ft": {
+      "9": {
+        "pct": 0.0
+      },
+      "10": {
+        "pct": 0.03
+      },
+      "12": {
+        "pct": 0.06
+      }
+    }
+  },
+  "existing_property": {
+    "demolition_per_sqft": {
+      "value": 10,
+      "source": "assumption",
+      "cite": "Planning allowance of $10 per sq ft of existing building for demolition and disposal (common contractor range is roughly $4-$15)."
+    },
+    "slope_site_work_pct": {
+      "value": {
+        "flat": 0.0,
+        "gentle": 0.03,
+        "steep": 0.1
+      },
+      "source": "assumption",
+      "cite": "Extra grading, retaining walls and foundation work on sloped lots, as a share of house cost."
+    },
+    "well_septic": {
+      "value": 30000,
+      "source": "assumption",
+      "cite": "Planning allowance for a private well and septic system where public water/sewer is not available."
+    }
+  }
+}
