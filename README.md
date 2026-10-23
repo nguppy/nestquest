@@ -31,7 +31,7 @@ You need **Python 3.12 or newer** and the course **Portkey API key**.
 
 1. **Get the code**
    ```bash
-   git clone <this-repo-url> nestquest
+   git clone https://github.com/nguppy/nestquest.git
    cd nestquest
    ```
 2. **Create a virtual environment and install** (4 small packages)
