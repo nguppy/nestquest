@@ -1,6 +1,6 @@
-# NestQuest by Engee Homes
+# NestQuest by EngeeHomes
 
-**Plan a home or a development you can actually build.** NestQuest is a planning tool from Engee Homes, a real estate developer based in Northern Virginia, focused on beautiful, sustainable communities, and expanding across the DMV and beyond. NestQuest itself works anywhere in the U.S.: costs are adjusted for all 50 states and D.C. It helps customers arrive with a realistic vision that Engee Homes would be happy to build with them.
+**Plan a home or a development you can actually build.** NestQuest is a planning tool from EngeeHomes, a real estate developer based in Northern Virginia, focused on beautiful, sustainable communities, and expanding across the DMV and beyond. NestQuest itself works anywhere in the U.S.: costs are adjusted for all 50 states and D.C. It helps customers arrive with a realistic vision that EngeeHomes would be happy to build with them.
 
 - **Homeowners:** enter a budget, a lot and the home you picture, and get three buildable home designs. Each comes with:
   - floor plans and a 3D model, including an "inside" view of each floor
@@ -20,7 +20,7 @@
 - **Interior preferences:** flooring, cabinets, countertops, color palette, ceiling height, open or defined layout, and appliances. They change the cost estimate and the furnished 3D "inside" view of each floor.
 - **No story cap:** stories are only limited by a height limit you enter.
 - **Features:** over 35 grouped options covering sustainability, outdoor living, lifestyle (including an in-law suite, spice kitchen and prayer room) and accessibility, plus over 20 amenities for developments.
-- **About Us:** Engee Homes' mission, vision, founder, process, projects (including the upcoming Manassas, VA multifamily development), design insights and contact details.
+- **About Us:** EngeeHomes' mission, vision, founder, process, projects (including the upcoming Manassas, VA multifamily development), design insights and contact details.
 - **Refine by chatting** in either flow ("add a home office", "add 4 more 3BR units"). The plan, price, checks and 3D model update every time.
 - **AI team:** four agents per flow (Intake, Designer, Advisor, Refinement) on `gpt-6-luna` via Portkey.
 - **Numbers:** every dollar figure, dimension and pass/fail check comes from NestQuest's calculators, which use cited data (NAHB 2024, DoD 2026 area cost factors, IRC R304, RLB 2026, WGI 2026, NAA, Census). The AI is never allowed to make up a price.
@@ -101,7 +101,7 @@ Three options  ──►  pick one  ──►  [Refinement agent] ⇄ same tools
 | `nestquest/drawing.py` | SVG floor plans, front sketches and 3D model data |
 | `nestquest/prompts/` | Each agent's instructions |
 | `data/` | Cost models and sources: `cost_model.json`, `cost_model_mf.json`, `cost_sources.json`, `multifamily_sources.json`, `state_cost_factors.csv` |
-| `static/` | The web page (HTML/CSS/JS, no build step). The main files are:<br>• `viewer3d.js`: the Three.js 3D viewer, including furnished interiors<br>• `dev.js`: the developer pages<br>• `forms.js`: the property, interior and feature pickers<br>• `img/about/`: photos from Engee Homes' materials |
+| `static/` | The web page (HTML/CSS/JS, no build step). The main files are:<br>• `viewer3d.js`: the Three.js 3D viewer, including furnished interiors<br>• `dev.js`: the developer pages<br>• `forms.js`: the property, interior and feature pickers<br>• `img/about/`: photos from EngeeHomes' materials |
 | `tests/` | Offline tests |
 
 ## Safety and spending limits
