@@ -1,0 +1,19 @@
+test_balanced_plan_passes (tests.test_multifamily.DevelopmentCalculators.test_balanced_plan_passes) ... ok
+test_density_limit (tests.test_multifamily.DevelopmentCalculators.test_density_limit) ... ok
+test_invented_numbers_caught (tests.test_multifamily.DevelopmentCalculators.test_invented_numbers_caught) ... ok
+test_parking_shortfall_warns (tests.test_multifamily.DevelopmentCalculators.test_parking_shortfall_warns) ... ok
+test_sale_at_a_loss_fails (tests.test_multifamily.DevelopmentCalculators.test_sale_at_a_loss_fails) ... ok
+test_site_too_small (tests.test_multifamily.DevelopmentCalculators.test_site_too_small) ... ok
+test_structured_parking_costs_more_and_uses_no_land (tests.test_multifamily.DevelopmentCalculators.test_structured_parking_costs_more_and_uses_no_land) ... ok
+test_cost_scales_with_state (tests.test_safety.Calculators.test_cost_scales_with_state) ... ok
+test_height_limit (tests.test_safety.Calculators.test_height_limit) ... ok
+test_narrow_lot_fails (tests.test_safety.Calculators.test_narrow_lot_fails) ... ok
+test_over_budget_fails (tests.test_safety.Calculators.test_over_budget_fails) ... ok
+test_tiny_bedroom_fails_code_check (tests.test_safety.Calculators.test_tiny_bedroom_fails_code_check) ... ok
+test_made_up_number_is_caught (tests.test_safety.InventedNumbers.test_made_up_number_is_caught) ... ok
+test_real_numbers_pass (tests.test_safety.InventedNumbers.test_real_numbers_pass) ... ok
+test_attacks_are_caught (tests.test_safety.PromptInjection.test_attacks_are_caught) ... ok
+test_normal_requests_pass (tests.test_safety.PromptInjection.test_normal_requests_pass) ... ok
+test_notes_keep_the_real_content (tests.test_safety.PromptInjection.test_notes_keep_the_real_content) ... ok
+Ran 17 tests in 0.013s
+OK
